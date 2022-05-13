@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.RegisterActivity">
+
+    <EditText
+        android:id="@+id/edtBairroRg"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/bairro_rg"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNumeroRg" />
+
+    <EditText
+        android:id="@+id/edtRuaRg"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/rua_rg"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtBairroRg" />
+
+    <EditText
+        android:id="@+id/edtSenhaRg"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:hint="@string/senha_rg"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtRuaRg" />
+
+    <Button
+        android:id="@+id/btnCadastroRg"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:text="@string/botao_cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSenhaRg" />
+
+    <EditText
+        android:id="@+id/edtNomeRg"
+        android:layout_width="175dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="160dp"
+        android:hint="@string/nome_rg"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtEmailRg"
+        android:layout_width="172dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/email_rg"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNomeRg" />
+
+    <EditText
+        android:id="@+id/edtCpfRg"
+        android:layout_width="145dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="164dp"
+        android:hint="@string/cpf_rg"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toEndOf="@+id/edtNomeRg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtNumeroRg"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/phoneNumber_rg"
+        android:inputType="phone"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toEndOf="@+id/edtEmailRg"
+        app:layout_constraintTop_toBottomOf="@+id/edtCpfRg" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

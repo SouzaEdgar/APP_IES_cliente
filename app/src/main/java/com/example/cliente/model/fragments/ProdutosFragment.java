@@ -121,35 +121,4 @@ public class ProdutosFragment extends Fragment {
 
         return view;
     }
-
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        recyclerView = getView().findViewById(R.id.rvProdutos);
-        produtosDB = FirebaseDatabase.getInstance().getReference("Produtos");
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext())); // view.getContext() == this    ~(Neste caso)
-
-        lista = new ArrayList<>();
-        prodAdapter = new ProdutoAdapter(getView().getContext(), lista);
-        recyclerView.setAdapter(prodAdapter);
-
-        // Acredito que o erro de Adição Inteira da Lista, ocorre aqui
-        produtosDB.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Produtos produtos = dataSnapshot.getValue(Produtos.class);
-                    lista.add(produtos);
-                }
-                prodAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d("Erro", "Não foi adicionado ao Realtime DB");
-            }
-        });
-    }*/
 }

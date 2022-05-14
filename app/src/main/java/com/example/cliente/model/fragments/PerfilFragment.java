@@ -88,7 +88,7 @@ public class PerfilFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        txtNome = view.findViewById(R.id.txtNome_itens);
+        txtNome = view.findViewById(R.id.txtNome_rg);
         txtEmail = view.findViewById(R.id.txtEmail);
         txtCPF = view.findViewById(R.id.txtCPF);
         txtNumero = view.findViewById(R.id.txtNumero);

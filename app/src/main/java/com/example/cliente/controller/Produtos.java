@@ -2,8 +2,9 @@ package com.example.cliente.controller;
 
 public class Produtos {
 
-    String nome, sabor, valor;
+    String nome, sabor, valor, imagem;
 
+    // Até o momento foi necessário utilizar somente os getters
     public String getNome() {
         return nome;
     }
@@ -14,5 +15,9 @@ public class Produtos {
 
     public String getValor() {
         return valor;
+    }
+
+    public String getImagem() {
+        return imagem;
     }
 }

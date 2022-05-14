@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.cliente.R;
 
 import java.util.ArrayList;
@@ -36,6 +38,9 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         holder.nome.setText(produto.getNome());
         holder.sabor.setText(produto.getSabor());
         holder.valor.setText(produto.getValor());
+        Glide.with(holder.imagem.getContext())
+                .load(produto.getImagem())
+                .into(holder.imagem);
     }
 
     @Override
@@ -46,6 +51,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView nome, sabor, valor;
+        ImageView imagem;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,6 +59,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
             nome = itemView.findViewById(R.id.txtNome_itens);
             sabor = itemView.findViewById(R.id.txtSabor_itens);
             valor = itemView.findViewById(R.id.txtValor_itens);
+            imagem = itemView.findViewById(R.id.imgItens);
         }
     }
 }

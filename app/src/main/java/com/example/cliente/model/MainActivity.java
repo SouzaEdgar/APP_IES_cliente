@@ -1,4 +1,4 @@
-package com.example.cliente.controller;
+package com.example.cliente.model;
 
 import static android.content.ContentValues.TAG;
 

@@ -1,4 +1,4 @@
-package com.example.cliente.controller.fragments;
+package com.example.cliente.model.fragments;
 
 import android.os.Bundle;
 

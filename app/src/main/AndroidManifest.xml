@@ -14,18 +14,18 @@
             android:exported="false"
             android:label="@string/title_activity_novo_menu" /-->
         <activity
-            android:name=".controller.MenuActivity"
+            android:name=".model.MenuActivity"
             android:exported="false" >
 
         </activity>
 
         <activity
-            android:name=".controller.RegisterActivity"
+            android:name=".model.RegisterActivity"
             android:exported="false" >
         </activity>
 
         <activity
-            android:name=".controller.MainActivity"
+            android:name=".model.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

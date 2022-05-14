@@ -1,4 +1,4 @@
-package com.example.cliente.controller.fragments;
+package com.example.cliente.model.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cliente.R;
-import com.example.cliente.controller.MainActivity;
+import com.example.cliente.model.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -64,36 +64,11 @@ public class PerfilFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        txtNome = getActivity().findViewById(R.id.txtNome);
-        txtEmail = getActivity().findViewById(R.id.txtEmail);
-        txtCPF = getActivity().findViewById(R.id.txtCPF);
-        txtNumero = getActivity().findViewById(R.id.txtNumero);
-        txtBairro = getActivity().findViewById(R.id.txtBairro);
-        txtRua = getActivity().findViewById(R.id.txtRua);
-
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        DocumentReference docReference = userDB.collection("Usuarios").document(userID);
-        docReference.addSnapshotListener((documentSnapshot, error) -> {
-            if(documentSnapshot != null) {
-                txtNome.setText(documentSnapshot.getString("nome"));
-                txtEmail.setText(email);
-                txtCPF.setText(documentSnapshot.getString("cpf"));
-                txtNumero.setText(documentSnapshot.getString("numero"));
-                txtBairro.setText(documentSnapshot.getString("bairro"));
-                txtRua.setText(documentSnapshot.getString("rua"));
-            }
-        });
-
         Button button = (Button) view.findViewById(R.id.btnDeslogar);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
-                startActivity(intent);
-            }
+        button.setOnClickListener(view1 -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(view1.getContext(), MainActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -111,6 +86,29 @@ public class PerfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        txtNome = view.findViewById(R.id.txtNome_itens);
+        txtEmail = view.findViewById(R.id.txtEmail);
+        txtCPF = view.findViewById(R.id.txtCPF);
+        txtNumero = view.findViewById(R.id.txtNumero);
+        txtBairro = view.findViewById(R.id.txtBairro);
+        txtRua = view.findViewById(R.id.txtRua);
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        DocumentReference docReference = userDB.collection("Usuarios").document(userID);
+        docReference.addSnapshotListener((documentSnapshot, error) -> {
+            if(documentSnapshot != null) {
+                txtNome.setText(documentSnapshot.getString("nome"));
+                txtEmail.setText(email);
+                txtCPF.setText(documentSnapshot.getString("cpf"));
+                txtNumero.setText(documentSnapshot.getString("numero"));
+                txtBairro.setText(documentSnapshot.getString("bairro"));
+                txtRua.setText(documentSnapshot.getString("rua"));
+            }
+        });
+        return view;
     }
 }

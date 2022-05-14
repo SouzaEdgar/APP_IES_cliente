@@ -1,4 +1,4 @@
-package com.example.cliente.model;
+package com.example.cliente.controller;
 
 public class Usuarios {
     /*

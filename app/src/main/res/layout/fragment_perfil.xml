@@ -75,7 +75,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.MenuActivity">
+    tools:context=".model.MenuActivity">
 
     <Button
         android:id="@+id/btnDeslogar"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.61" />
 
     <TextView
-        android:id="@+id/txtNome"
+        android:id="@+id/txtNome_itens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/btnDeslogar"
@@ -108,7 +108,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome_itens"
         app:layout_constraintVertical_bias="0.282" />
 
     <TextView
@@ -130,7 +130,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome_itens"
         app:layout_constraintVertical_bias="0.442" />
 
     <TextView
@@ -152,6 +152,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome_itens"
         app:layout_constraintVertical_bias="0.702" />
 </androidx.constraintlayout.widget.ConstraintLayout>

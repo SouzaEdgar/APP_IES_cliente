@@ -5,17 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".model.fragments.CarrinhoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCarrinho"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rlFGperfil">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Carrinho" />
-    </RelativeLayout>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

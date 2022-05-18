@@ -3,42 +3,34 @@ package com.example.cliente.model.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cliente.R;
+import com.example.cliente.controller.carrinhoAdapter;
+import com.example.cliente.model.carrinhoModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CarrinhoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class CarrinhoFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView recyclerView;
+    ArrayList<carrinhoModel> carrinhoHolder;
 
     public CarrinhoFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CarrinhoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CarrinhoFragment newInstance(String param1, String param2) {
         CarrinhoFragment fragment = new CarrinhoFragment();
         Bundle args = new Bundle();
@@ -61,6 +53,33 @@ public class CarrinhoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_carrinho, container, false);
+        View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
+
+        recyclerView = view.findViewById(R.id.rvCarrinho);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        carrinhoHolder = new ArrayList<>();
+/* IMAGEM DO BOLO
+https://firebasestorage.googleapis.com/v0/b/ies-cliente.appspot.com/o/bolo.jpg?alt=media&token=1e12974c-18aa-45fd-ab7e-ae75216fb1a4
+ */
+        String imagemLink = "https://firebasestorage.googleapis.com/v0/b/ies-cliente.appspot.com/o/bolo.jpg?alt=media&token=1e12974c-18aa-45fd-ab7e-ae75216fb1a4";
+
+        carrinhoModel ob1 = new carrinhoModel(imagemLink, "Bolo Murango", "Murango", "minha paz");
+        carrinhoHolder.add(ob1);
+
+        carrinhoModel ob2 = new carrinhoModel(imagemLink, "Bolo Coco", "Coco", "meu português");
+        carrinhoHolder.add(ob2);
+
+        carrinhoModel ob3 = new carrinhoModel(imagemLink, "Bolo Laranja", "Laranja", "minha fome");
+        carrinhoHolder.add(ob3);
+
+        carrinhoModel ob4 = new carrinhoModel(imagemLink, "Bolo Limão", "Limão", "minha alma");
+        carrinhoHolder.add(ob4);
+
+        carrinhoModel ob5 = new carrinhoModel(imagemLink, "Bolo Chocolate", "Chocolate", "chocolate :D");
+        carrinhoHolder.add(ob5);
+
+        recyclerView.setAdapter(new carrinhoAdapter(carrinhoHolder));
+
+        return view;
     }
 }

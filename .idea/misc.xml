@@ -17,9 +17,11 @@
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/activity_novo_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/activity_register.xml" value="0.29717180244829045" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/fragment_carrinho.xml" value="0.3009833262077811" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/fragment_carrinho_vazio.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/fragment_item.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/fragment_perfil.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/fragment_produtos.xml" value="0.3009833262077811" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/itens_carrinho.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/itens_produto.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/menu/nav_menu.xml" value="0.36666666666666664" />
       </map>

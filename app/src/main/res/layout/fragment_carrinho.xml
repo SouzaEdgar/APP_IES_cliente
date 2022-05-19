@@ -5,9 +5,89 @@
     android:layout_height="match_parent"
     tools:context=".model.fragments.CarrinhoFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCarrinho"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imgBoloTriste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bolotriste"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/imgBoloFeliz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bolofeliz"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/txtMsgBoloTriste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/btnFinalizar"
+            android:layout_below="@id/imgBoloTriste"
+            android:text="SEM ITENS NO CARRINHO ;-;"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#9E9797" />
+        <TextView
+            android:id="@+id/txtMsgBoloFeliz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/btnFinalizar"
+            android:layout_below="@id/imgBoloTriste"
+            android:text="VOCÊ REALIZOU UM PEDIDO :D"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#9E9797"
+            android:visibility="invisible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCarrinho"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnFinalizar" />
+        <Button
+            android:id="@+id/btnFinalizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:text="FINALIZAR PEDIDO"
+            android:layout_toRightOf="@id/txtValorTotal"/>
+
+        <TextView
+            android:id="@+id/txtRSFINAL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rvCarrinho"
+            android:layout_margin="8dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="5dp"
+            android:text="R$: "
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtValorTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rvCarrinho"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@id/txtRSFINAL"
+            android:text="00.00"
+            android:textColor="#000"
+            android:textSize="22sp" />
+    </RelativeLayout>
 
 </FrameLayout>

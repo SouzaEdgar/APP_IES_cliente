@@ -2,7 +2,10 @@ package com.example.cliente.model.fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cliente.R;
 import com.example.cliente.controller.carrinhoAdapter;
@@ -27,6 +33,8 @@ public class CarrinhoFragment extends Fragment {
 
     RecyclerView recyclerView;
     ArrayList<carrinhoModel> carrinhoHolder;
+
+    TextView vTOTAL;
 
     public CarrinhoFragment() {
         // Required empty public constructor
@@ -59,38 +67,50 @@ public class CarrinhoFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rvCarrinho);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         carrinhoHolder = new ArrayList<>();
-/* IMAGEM DO BOLO
-https://firebasestorage.googleapis.com/v0/b/ies-cliente.appspot.com/o/bolo.jpg?alt=media&token=1e12974c-18aa-45fd-ab7e-ae75216fb1a4
- */
-        String imagemLink = "https://firebasestorage.googleapis.com/v0/b/ies-cliente.appspot.com/o/bolo.jpg?alt=media&token=1e12974c-18aa-45fd-ab7e-ae75216fb1a4";
 
-        /*carrinhoModel ob1 = new carrinhoModel(imagemLink, "Bolo de Murango", "Murango", "minha paz");
-        carrinhoHolder.add(ob1);
+        vTOTAL = view.findViewById(R.id.txtValorTotal);
 
-        carrinhoModel ob2 = new carrinhoModel(imagemLink, "Bolo de Coco", "Coco", "meu português");
-        carrinhoHolder.add(ob2);
-
-        carrinhoModel ob3 = new carrinhoModel(imagemLink, "Bolo de Laranja", "Laranja", "minha fome");
-        carrinhoHolder.add(ob3);
-
-        carrinhoModel ob4 = new carrinhoModel(imagemLink, "Bolo de Limão", "Limão", "minha alma");
-        carrinhoHolder.add(ob4);
-
-        carrinhoModel ob5 = new carrinhoModel(imagemLink, "Bolo de Chocolate", "Chocolate", "chocolate :D");
-        carrinhoHolder.add(ob5);
-
-        carrinhoModel ob6 = new carrinhoModel(imagemLink, "Bolo de Leite Ninho", "Ninho", "Ninho :D");
-        carrinhoHolder.add(ob6);
-
-        carrinhoModel ob7 = new carrinhoModel(imagemLink, "Bolo de Bolo", "Bolo", "Não deveria ser comercializado");
-        carrinhoHolder.add(ob7);
-
-        Log.d("teste", String.valueOf(carrinhoHolder));
-
-        recyclerView.setAdapter(new carrinhoAdapter(carrinhoHolder));*/
-        if(ItemFragment.itemADD != null) {
+        if(ItemFragment.itemADD.size() != 0) {
             recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
+            String s = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ",");
+            vTOTAL.setText(s);
+
+            view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.INVISIBLE);
+            view.findViewById(R.id.imgBoloTriste).setVisibility(view.INVISIBLE);
+            view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.INVISIBLE);
+            view.findViewById(R.id.imgBoloFeliz).setVisibility(view.INVISIBLE);
+        } else {
+            recyclerView.setVisibility(view.INVISIBLE);
+            String s = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ",");
+            vTOTAL.setText(s);
+            view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.VISIBLE);
+            view.findViewById(R.id.imgBoloTriste).setVisibility(view.VISIBLE);
+            view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.INVISIBLE);
+            view.findViewById(R.id.imgBoloFeliz).setVisibility(view.INVISIBLE);
         }
+
+        Button finalizar = view.findViewById(R.id.btnFinalizar);
+        finalizar.setOnClickListener(v -> {
+            if(ItemFragment.itemADD.size() != 0) {
+                Toast.makeText(view.getContext(), "Pedido enviado", Toast.LENGTH_SHORT).show();
+                /////// Limpar a lista //////////
+                ItemFragment.itemADD = new ArrayList<>();
+
+                /////// Zerar a somaTOTAL ///////
+                Log.d("OIAaaa", "antes de zerar -> "+ItemFragment.somaTOTAL);
+                ItemFragment.somaTOTAL = 00.00;
+                String s = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ",");
+                vTOTAL.setText(s);
+
+                recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
+                view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.VISIBLE);
+                view.findViewById(R.id.imgBoloFeliz).setVisibility(view.VISIBLE);
+                view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.INVISIBLE);
+                view.findViewById(R.id.imgBoloTriste).setVisibility(view.INVISIBLE);
+            } else {
+                Toast.makeText(view.getContext(), "Sem itens no carrinho", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

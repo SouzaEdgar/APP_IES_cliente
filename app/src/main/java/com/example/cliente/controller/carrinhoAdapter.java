@@ -59,7 +59,7 @@ public class carrinhoAdapter extends RecyclerView.Adapter<carrinhoAdapter.myview
     class myviewHolder extends RecyclerView.ViewHolder {
 
         ImageView img;
-        TextView nome, sabor, valor;
+        TextView nome, sabor, valor, vTOTAL;
         public myviewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.imgItensCar);

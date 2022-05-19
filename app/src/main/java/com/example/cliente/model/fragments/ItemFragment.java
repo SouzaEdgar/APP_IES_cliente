@@ -58,8 +58,9 @@ public class ItemFragment extends Fragment {
         }
     }
 
-    // Array a ser acessada pelo carrinhoFragment
+    // Variaveis a serem acessadas pelo carrinhoFragment
     static ArrayList<carrinhoModel> itemADD = new ArrayList<>();
+    static Double somaTOTAL = 00.00;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,9 +87,10 @@ public class ItemFragment extends Fragment {
             Log.d("OIA", "imagem -> "+imagem);
 
             carrinhoModel objADD = new carrinhoModel(imagem, nome, sabor, valor);
-            //Log.d("OIaa", String.valueOf(objADD));
             itemADD.add(objADD);
-            // Até esse momento, em teoria esta sendo adicionado os valores clicados
+            somaTOTAL += Double.parseDouble(valor.replace(",","."));
+
+            Toast.makeText(v.getContext(), "Item adicionado ao carrinho", Toast.LENGTH_SHORT).show();
         });
 
         return view;

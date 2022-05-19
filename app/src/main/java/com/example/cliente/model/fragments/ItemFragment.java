@@ -5,14 +5,20 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.cliente.R;
+import com.example.cliente.model.carrinhoModel;
+
+import java.util.ArrayList;
 
 public class ItemFragment extends Fragment {
 
@@ -52,6 +58,8 @@ public class ItemFragment extends Fragment {
         }
     }
 
+    // Array a ser acessada pelo carrinhoFragment
+    static ArrayList<carrinhoModel> itemADD = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +75,21 @@ public class ItemFragment extends Fragment {
         saborHolder.setText(sabor);
         valorHolder.setText(valor);
         Glide.with(getContext()).load(imagem).into(imgHolder);
+
+
+
+        Button adicionar = view.findViewById(R.id.btnADDcar);
+        adicionar.setOnClickListener(v -> {
+            Log.d("OIA", "nome -> "+nome);
+            Log.d("OIA", "sabor -> "+sabor);
+            Log.d("OIA", "valor -> "+valor);
+            Log.d("OIA", "imagem -> "+imagem);
+
+            carrinhoModel objADD = new carrinhoModel(imagem, nome, sabor, valor);
+            //Log.d("OIaa", String.valueOf(objADD));
+            itemADD.add(objADD);
+            // Até esse momento, em teoria esta sendo adicionado os valores clicados
+        });
 
         return view;
     }

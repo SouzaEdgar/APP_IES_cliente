@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,22 +64,33 @@ https://firebasestorage.googleapis.com/v0/b/ies-cliente.appspot.com/o/bolo.jpg?a
  */
         String imagemLink = "https://firebasestorage.googleapis.com/v0/b/ies-cliente.appspot.com/o/bolo.jpg?alt=media&token=1e12974c-18aa-45fd-ab7e-ae75216fb1a4";
 
-        carrinhoModel ob1 = new carrinhoModel(imagemLink, "Bolo Murango", "Murango", "minha paz");
+        /*carrinhoModel ob1 = new carrinhoModel(imagemLink, "Bolo de Murango", "Murango", "minha paz");
         carrinhoHolder.add(ob1);
 
-        carrinhoModel ob2 = new carrinhoModel(imagemLink, "Bolo Coco", "Coco", "meu português");
+        carrinhoModel ob2 = new carrinhoModel(imagemLink, "Bolo de Coco", "Coco", "meu português");
         carrinhoHolder.add(ob2);
 
-        carrinhoModel ob3 = new carrinhoModel(imagemLink, "Bolo Laranja", "Laranja", "minha fome");
+        carrinhoModel ob3 = new carrinhoModel(imagemLink, "Bolo de Laranja", "Laranja", "minha fome");
         carrinhoHolder.add(ob3);
 
-        carrinhoModel ob4 = new carrinhoModel(imagemLink, "Bolo Limão", "Limão", "minha alma");
+        carrinhoModel ob4 = new carrinhoModel(imagemLink, "Bolo de Limão", "Limão", "minha alma");
         carrinhoHolder.add(ob4);
 
-        carrinhoModel ob5 = new carrinhoModel(imagemLink, "Bolo Chocolate", "Chocolate", "chocolate :D");
+        carrinhoModel ob5 = new carrinhoModel(imagemLink, "Bolo de Chocolate", "Chocolate", "chocolate :D");
         carrinhoHolder.add(ob5);
 
-        recyclerView.setAdapter(new carrinhoAdapter(carrinhoHolder));
+        carrinhoModel ob6 = new carrinhoModel(imagemLink, "Bolo de Leite Ninho", "Ninho", "Ninho :D");
+        carrinhoHolder.add(ob6);
+
+        carrinhoModel ob7 = new carrinhoModel(imagemLink, "Bolo de Bolo", "Bolo", "Não deveria ser comercializado");
+        carrinhoHolder.add(ob7);
+
+        Log.d("teste", String.valueOf(carrinhoHolder));
+
+        recyclerView.setAdapter(new carrinhoAdapter(carrinhoHolder));*/
+        if(ItemFragment.itemADD != null) {
+            recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
+        }
 
         return view;
     }

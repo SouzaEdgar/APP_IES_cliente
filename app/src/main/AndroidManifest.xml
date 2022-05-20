@@ -15,18 +15,22 @@
             android:label="@string/title_activity_novo_menu" /-->
         <activity
             android:name=".model.MenuActivity"
-            android:exported="false" >
+            android:exported="false"
+            android:screenOrientation="portrait">
+
 
         </activity>
 
         <activity
             android:name=".model.RegisterActivity"
-            android:exported="false" >
+            android:exported="false"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".model.MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

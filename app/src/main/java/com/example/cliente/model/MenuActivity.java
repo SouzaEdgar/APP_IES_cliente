@@ -24,8 +24,8 @@ public class MenuActivity extends AppCompatActivity {
 
         mudarFragment(new ProdutosFragment());
 
-        BottomNavigationView navSecoes = findViewById(R.id.navSecoes);
-        navSecoes.setOnItemSelectedListener(item -> {
+         BottomNavigationView navSecoes = findViewById(R.id.navSecoes);
+         navSecoes.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.item_produto:
                     mudarFragment(new ProdutosFragment());

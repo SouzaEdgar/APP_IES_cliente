@@ -3,7 +3,9 @@ package com.example.cliente.model.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.cliente.R;
 import com.example.cliente.model.MainActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -69,6 +72,7 @@ public class PerfilFragment extends Fragment {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(view1.getContext(), MainActivity.class);
             startActivity(intent);
+            getActivity().finish();
         });
     }
 
@@ -79,6 +83,21 @@ public class PerfilFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(
+                                R.id.frame_layout,
+                                new ProdutosFragment()
+                        ).addToBackStack(null).commit();
+                BottomNavigationView navSecoes = activity.findViewById(R.id.navSecoes);
+                navSecoes.getMenu().findItem(R.id.item_produto).setChecked(true);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
 
@@ -95,20 +114,23 @@ public class PerfilFragment extends Fragment {
         txtBairro = view.findViewById(R.id.txtBairro);
         txtRua = view.findViewById(R.id.txtRua);
 
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+            userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        DocumentReference docReference = userDB.collection("Usuarios").document(userID);
-        docReference.addSnapshotListener((documentSnapshot, error) -> {
-            if(documentSnapshot != null) {
-                txtNome.setText(documentSnapshot.getString("nome"));
-                txtEmail.setText(email);
-                txtCPF.setText(documentSnapshot.getString("cpf"));
-                txtNumero.setText(documentSnapshot.getString("numero"));
-                txtBairro.setText(documentSnapshot.getString("bairro"));
-                txtRua.setText(documentSnapshot.getString("rua"));
-            }
-        });
+            DocumentReference docReference = userDB.collection("Usuarios").document(userID);
+            docReference.addSnapshotListener((documentSnapshot, error) -> {
+                if(documentSnapshot != null) {
+                    txtNome.setText(documentSnapshot.getString("nome"));
+                    txtEmail.setText(email);
+                    txtCPF.setText(documentSnapshot.getString("cpf"));
+                    txtNumero.setText(documentSnapshot.getString("numero"));
+                    txtBairro.setText(documentSnapshot.getString("bairro"));
+                    txtRua.setText(documentSnapshot.getString("rua"));
+                }
+            });
+        }
+
         return view;
     }
 }

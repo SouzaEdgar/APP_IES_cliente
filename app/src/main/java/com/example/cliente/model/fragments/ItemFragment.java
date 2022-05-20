@@ -2,6 +2,7 @@ package com.example.cliente.model.fragments;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -56,6 +57,19 @@ public class ItemFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(
+                                R.id.frame_layout,
+                                new ProdutosFragment()
+                        ).addToBackStack(null).commit();
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     // Variaveis a serem acessadas pelo carrinhoFragment
@@ -96,7 +110,7 @@ public class ItemFragment extends Fragment {
         return view;
     }
 
-    public void onBackPressed() {
+    /*public void onBackPressed() {
         AppCompatActivity activity = (AppCompatActivity) getContext();
         activity.getSupportFragmentManager()
                 .beginTransaction()
@@ -104,5 +118,5 @@ public class ItemFragment extends Fragment {
                         R.id.frame_layout,
                         new ProdutosFragment()
                 ).addToBackStack(null).commit();
-    }
+    }*/
 }

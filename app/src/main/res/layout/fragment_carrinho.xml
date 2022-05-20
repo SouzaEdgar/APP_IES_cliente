@@ -3,17 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".model.fragments.CarrinhoFragment">
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imgBoloTriste"
@@ -56,7 +51,7 @@
             android:id="@+id/rvCarrinho"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/btnFinalizar" />
+            android:layout_above="@id/edtDataEntrega" />
         <Button
             android:id="@+id/btnFinalizar"
             android:layout_width="wrap_content"
@@ -71,7 +66,7 @@
             android:id="@+id/txtRSFINAL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rvCarrinho"
+            android:layout_below="@id/edtDataEntrega"
             android:layout_margin="8dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
@@ -86,7 +81,7 @@
             android:id="@+id/txtValorTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rvCarrinho"
+            android:layout_below="@id/edtDataEntrega"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -94,6 +89,25 @@
             android:text="00.00"
             android:textColor="#000"
             android:textSize="22sp" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edtDataEntrega"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btnFinalizar"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Escolha uma data de Entrega dd/mm"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:mask="--/--"
+            app:maskCharacter="-"
+            app:maskStyle="completable"/>
     </RelativeLayout>
 
 </FrameLayout>

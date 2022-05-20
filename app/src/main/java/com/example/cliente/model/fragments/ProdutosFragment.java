@@ -3,8 +3,10 @@ package com.example.cliente.model.fragments;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +21,7 @@ import android.view.ViewGroup;
 import com.example.cliente.R;
 import com.example.cliente.controller.ProdutoAdapter;
 import com.example.cliente.controller.Produtos;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,6 +64,21 @@ public class ProdutosFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(
+                                R.id.frame_layout,
+                                new ProdutosFragment()
+                        ).addToBackStack(null).commit();
+                BottomNavigationView navSecoes = activity.findViewById(R.id.navSecoes);
+                navSecoes.getMenu().findItem(R.id.item_produto).setChecked(true);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     RecyclerView recyclerView;

@@ -43,6 +43,8 @@ public class carrinhoAdapter extends RecyclerView.Adapter<carrinhoAdapter.myview
         holder.sabor.setText(carrinhoHolder.get(position).getSabor());
         holder.valor.setText(carrinhoHolder.get(position).getValor());
 
+
+
         // Aqui ele seta os valores, logo é necessario fazer com que esses valores recolhidos
         // ja estajam da forma necessaria.
 

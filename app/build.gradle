@@ -50,6 +50,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.4'
     testImplementation 'junit:junit:4.13.2'
 
+    // Mascaras de Input
+    implementation 'com.github.santalu:maskara:1.0.0'
+
     // Foi implementado o Glide (Bumptech) para a manipulação das imagens dos produtos
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'

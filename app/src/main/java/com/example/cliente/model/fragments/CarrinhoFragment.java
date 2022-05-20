@@ -20,8 +20,12 @@ import android.widget.Toast;
 import com.example.cliente.R;
 import com.example.cliente.controller.carrinhoAdapter;
 import com.example.cliente.model.carrinhoModel;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CarrinhoFragment extends Fragment {
 
@@ -93,6 +97,17 @@ public class CarrinhoFragment extends Fragment {
         finalizar.setOnClickListener(v -> {
             if(ItemFragment.itemADD.size() != 0) {
                 Toast.makeText(view.getContext(), "Pedido enviado", Toast.LENGTH_SHORT).show();
+                //// Enviar pedido antes de zerar/limpar os dados /////
+                /*Map<String, Object> pedidosCar = new HashMap<>();
+                pedidosCar.put("nome", nome);
+                pedidosCar.put("nome", nome);
+                pedidosCar.put("nome", nome);
+                pedidosCar.put("nome", nome);
+                pedidosCar.put("nome", nome);
+
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+                reference.child("pedidos").push().setValue(pedidosCar);*/
+
                 /////// Limpar a lista //////////
                 ItemFragment.itemADD = new ArrayList<>();
 

@@ -145,7 +145,7 @@ public class CarrinhoFragment extends Fragment {
                         Toast.makeText(view.getContext(), "Meses válidos 5~12", Toast.LENGTH_SHORT).show();
 
                     } else {
-/////////////////// Caso tudo esteja correto ////////////////////////////////////////
+                        /////////// Caso tudo esteja correto ////////////
                         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("pedidos").push();
@@ -166,6 +166,7 @@ public class CarrinhoFragment extends Fragment {
                                                 infos.put("bairro", document.get("bairro"));
                                                 infos.put("rua", document.get("rua"));
                                                 infos.put("valorTotal", valorTotal = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ","));
+                                                infos.put("dtaEntrega", dtaEntrega.getMasked()); // Ira retorna com a mascara caso seja necessario fazer um split para pegar os valores separados
                                                 reference.setValue(infos);
 
                                                 Map<String, Object> pedidosCar = new HashMap<>();
@@ -206,7 +207,6 @@ public class CarrinhoFragment extends Fragment {
                 Toast.makeText(view.getContext(), "Sem itens no carrinho", Toast.LENGTH_SHORT).show();
             }
         });
-
         return view;
     }
 }

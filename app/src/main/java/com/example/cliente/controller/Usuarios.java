@@ -1,24 +1,74 @@
 package com.example.cliente.controller;
 
 public class Usuarios {
-    /*
-    Necessario puxar os dados dos usuarios no DB para deixar pronto caso necessario a verificação
-     */
+    String nome, cpf, email, rua, bairro, numero, valorTotal;
 
-    public Boolean verificaUser(String email, String senha) {
-        Boolean valido = false;
-/*
-    ( Processo de validação )
-    >> Primeiro é verificado se o email existe no DB
-        >> Se o email for verdadeiro, então é verificado a senha
-            >> Caso a senha for VERDADEIRA então o Usuario é VALIDO
-            >> Caso a senha for FALSA então o Usuario deve ser informado
+    public Usuarios() {
+    }
 
- */
-        if(email.equals("usuario@cliente.com") || email.equals("usuario")) {
-            if( senha.equals("123456") || senha.equals("123")) valido = true;
-        } else valido = false;
+    public Usuarios(String nome, String cpf, String email, String rua, String bairro, String numero, String valorTotal) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.valorTotal = valorTotal;
+    }
 
-        return valido;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(String valorTotal) {
+        this.valorTotal = valorTotal;
     }
 }

@@ -100,7 +100,6 @@ public class PerfilFragment extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -127,6 +126,7 @@ public class PerfilFragment extends Fragment {
                     txtNumero.setText(documentSnapshot.getString("numero"));
                     txtBairro.setText(documentSnapshot.getString("bairro"));
                     txtRua.setText(documentSnapshot.getString("rua"));
+
                 }
             });
         }

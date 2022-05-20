@@ -130,20 +130,14 @@ public class CarrinhoFragment extends Fragment {
         Button finalizar = view.findViewById(R.id.btnFinalizar);
         finalizar.setOnClickListener(v -> {
             if(ItemFragment.itemADD.size() != 0) {
-                Toast.makeText(view.getContext(), "Pedido enviado", Toast.LENGTH_SHORT).show();
-                dtaEntrega.setText("");
                 if(dtaEntrega.isDone()) { // Verifica de a Data de Entrega esta setada
                     Log.d("Data", "Dia -> " + dtaEntrega.getMasked().substring(0,2)); // Recolhe o dia
                     Log.d("Data", "Mês -> " + dtaEntrega.getMasked().substring(3,5)); // Recolhe o mês
 
                     if(Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) > 31 || Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) < 1) {
                         Toast.makeText(view.getContext(), "Dia inválido", Toast.LENGTH_SHORT).show();
-
-                    }
-                    else if(Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) > 12 || Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) < 5 ) {
-
+                    } else if(Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) > 12 || Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) < 5 ) {
                         Toast.makeText(view.getContext(), "Meses válidos 5~12", Toast.LENGTH_SHORT).show();
-
                     } else {
                         /////////// Caso tudo esteja correto ////////////
                         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -187,11 +181,17 @@ public class CarrinhoFragment extends Fragment {
                                                 String s = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ",");
                                                 vTOTAL.setText(s);
 
+                                                //// Limpar a Data de Entrega ////
+                                                dtaEntrega.setText("");
+
+                                                /// Com a lista zerada -> Limpar a tela -> Bolo Feliz////
                                                 recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
                                                 view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.VISIBLE);
                                                 view.findViewById(R.id.imgBoloFeliz).setVisibility(view.VISIBLE);
                                                 view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.INVISIBLE);
                                                 view.findViewById(R.id.imgBoloTriste).setVisibility(view.INVISIBLE);
+
+                                                Toast.makeText(view.getContext(), "Pedido enviado", Toast.LENGTH_SHORT).show();
                                                 break;
                                             }
                                         }

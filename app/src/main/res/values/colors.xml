@@ -7,6 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="paleta1">#eea2bb</color>
+    <color name="paleta2">#f9f7f7</color>
+    <color name="paleta3">#7ac2ba</color>
+
+    <color name="paletaEdit1">#EEA2BB</color>
+    <color name="paletaEdit2">#4DFFFFFF</color>
+    <color name="paletaEdit3">#7AC2BA</color>
 
     <color name="cinza">#787878</color>
 </resources>

@@ -6,7 +6,7 @@
     <string name="senha_lg">Senha: </string>
     <string name="btn_Login">ENTRAR</string>
     <string name="btn_Register">REGISTRAR</string>
-    <string name="email_ExemploLG">Email: usuario@cliente.com</string>
+    <string name="email_ExemploLG">Email: user@cliente.com</string>
     <string name="senha_ExemploLG">Senha: 123456</string>
 
     <!-- Parte do Registro (Cadastro / Rg (Register)) -->

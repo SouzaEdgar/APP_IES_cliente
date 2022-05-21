@@ -8,36 +8,40 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.cliente.R;
 import com.example.cliente.model.MainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.santalu.maskara.widget.MaskEditText;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PerfilFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class PerfilFragment extends Fragment {
 
-    private TextView txtNome, txtEmail, txtCPF, txtNumero, txtRua, txtBairro;
+    private EditText edtNome, edtRua, edtBairro;
+    private MaskEditText edtCPF, edtNumero;
     FirebaseFirestore userDB = FirebaseFirestore.getInstance();
     String userID;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -45,15 +49,6 @@ public class PerfilFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PerfilFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static PerfilFragment newInstance(String param1, String param2) {
         PerfilFragment fragment = new PerfilFragment();
         Bundle args = new Bundle();
@@ -67,12 +62,51 @@ public class PerfilFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        edtNome = view.findViewById(R.id.edtNome_alt);
+        //edtEmail = view.findViewById(R.id.edtEmail_alt);
+        edtCPF = view.findViewById(R.id.edtCPF_alt);
+        edtNumero = view.findViewById(R.id.edtNumero_alt);
+        edtBairro = view.findViewById(R.id.edtBairro_alt);
+        edtRua = view.findViewById(R.id.edtRua_alt);
+
         Button button = (Button) view.findViewById(R.id.btnDeslogar);
         button.setOnClickListener(view1 -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(view1.getContext(), MainActivity.class);
             startActivity(intent);
             getActivity().finish();
+        });
+
+        Button alterar = view.findViewById(R.id.btnAlterar);
+        alterar.setOnClickListener(v -> {
+            if(!edtNome.getText().toString().isEmpty() && edtCPF.isDone() && edtNumero.isDone() &&
+                    !edtBairro.getText().toString().isEmpty()  && !edtRua.getText().toString().isEmpty()) {
+                CollectionReference docReference = userDB.collection("Usuarios");//.document(userID);
+                docReference
+                        .get()
+                        .addOnCompleteListener((OnCompleteListener<QuerySnapshot>) task -> {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Log.d("OIAEITA_ALT", document.getId() + " => " + document.getData());
+                                    if (document.getId().equals(userID)) {
+                                        Toast.makeText(view.getContext(), "Dados alterados", Toast.LENGTH_SHORT).show();
+
+                                        Map<String, Object> alterado = new HashMap<>();
+                                        alterado.put("nome", edtNome.getText().toString());
+                                        //alterado.put("email", edtEmail.getText().toString());
+                                        alterado.put("cpf", edtCPF.getUnMasked());
+                                        alterado.put("numero", edtNumero.getUnMasked());
+                                        alterado.put("bairro", edtBairro.getText().toString());
+                                        alterado.put("rua", edtRua.getText().toString());
+                                        docReference.document(userID).update(alterado);//.addOnCompleteListener()
+                                        break;
+                                    }
+                                }
+                            }
+                        });
+            } else {
+                Toast.makeText(view.getContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -106,12 +140,12 @@ public class PerfilFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        txtNome = view.findViewById(R.id.txtNome_rg);
-        txtEmail = view.findViewById(R.id.txtEmail);
-        txtCPF = view.findViewById(R.id.txtCPF);
-        txtNumero = view.findViewById(R.id.txtNumero);
-        txtBairro = view.findViewById(R.id.txtBairro);
-        txtRua = view.findViewById(R.id.txtRua);
+        edtNome = view.findViewById(R.id.edtNome_alt);
+        //edtEmail = view.findViewById(R.id.edtEmail_alt);
+        edtCPF = view.findViewById(R.id.edtCPF_alt);
+        edtNumero = view.findViewById(R.id.edtNumero_alt);
+        edtBairro = view.findViewById(R.id.edtBairro_alt);
+        edtRua = view.findViewById(R.id.edtRua_alt);
 
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
             String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -120,12 +154,12 @@ public class PerfilFragment extends Fragment {
             DocumentReference docReference = userDB.collection("Usuarios").document(userID);
             docReference.addSnapshotListener((documentSnapshot, error) -> {
                 if(documentSnapshot != null) {
-                    txtNome.setText(documentSnapshot.getString("nome"));
-                    txtEmail.setText(email);
-                    txtCPF.setText(documentSnapshot.getString("cpf"));
-                    txtNumero.setText(documentSnapshot.getString("numero"));
-                    txtBairro.setText(documentSnapshot.getString("bairro"));
-                    txtRua.setText(documentSnapshot.getString("rua"));
+                    edtNome.setText(documentSnapshot.getString("nome"));
+                    //edtEmail.setText(email);
+                    edtCPF.setText(documentSnapshot.getString("cpf"));
+                    edtNumero.setText(documentSnapshot.getString("numero"));
+                    edtBairro.setText(documentSnapshot.getString("bairro"));
+                    edtRua.setText(documentSnapshot.getString("rua"));
 
                 }
             });

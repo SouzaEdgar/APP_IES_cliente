@@ -4,7 +4,7 @@
         android:startColor="@color/paleta1"
         android:centerColor="@color/paleta2"
         android:endColor="@color/paleta3"
-        android:angle="5"
+        android:angle="270"
         />
 
 </shape>

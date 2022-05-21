@@ -16,11 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-  /* Objetos */
-    // Classes
-    //private Usuarios usuarios;
 
-    // Views
     private EditText edtEmail;
     private EditText edtSenha;
 

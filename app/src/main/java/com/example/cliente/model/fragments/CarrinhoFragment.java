@@ -117,10 +117,27 @@ public class CarrinhoFragment extends Fragment {
             view.findViewById(R.id.imgBoloTriste).setVisibility(view.INVISIBLE);
             view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.INVISIBLE);
             view.findViewById(R.id.imgBoloFeliz).setVisibility(view.INVISIBLE);
+
+            Button limpar = view.findViewById(R.id.btnLimpar);
+            limpar.setOnClickListener(v -> {
+               ItemFragment.itemADD = new ArrayList<>();
+               recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
+               view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.VISIBLE);
+               view.findViewById(R.id.imgBoloTriste).setVisibility(view.VISIBLE);
+                ItemFragment.somaTOTAL = 00.00;
+                vTOTAL.setText(String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ","));
+               Toast.makeText(view.getContext(), "Carrinho esvaziado",Toast.LENGTH_SHORT).show();
+            });
         } else {
             recyclerView.setVisibility(view.INVISIBLE);
             String s = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ",");
             vTOTAL.setText(s);
+
+            Button limpar = view.findViewById(R.id.btnLimpar);
+            limpar.setOnClickListener(v -> {
+                Toast.makeText(view.getContext(), "Carrinho já esta vazio", Toast.LENGTH_SHORT).show();
+            });
+
             view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.VISIBLE);
             view.findViewById(R.id.imgBoloTriste).setVisibility(view.VISIBLE);
             view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.INVISIBLE);

@@ -28,23 +28,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_above="@id/btnFinalizar"
+            android:layout_above="@id/divider"
             android:layout_below="@id/imgBoloTriste"
             android:text="SEM ITENS NO CARRINHO ;-;"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="#9E9797" />
+
         <TextView
             android:id="@+id/txtMsgBoloFeliz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@id/btnFinalizar"
+            android:layout_above="@id/divider"
             android:layout_below="@id/imgBoloTriste"
+            android:layout_centerHorizontal="true"
             android:text="VOCÊ REALIZOU UM PEDIDO :D"
+            android:textColor="#9E9797"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#9E9797"
             android:visibility="invisible" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -60,19 +61,32 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@id/btnLimpar"
+            android:layout_toRightOf="@id/btnLimpar"
+            android:text="FINALIZAR PEDIDO" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLimpar"
+            style="@style/botoesGradienteContrario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@id/txtValorTotal"
-            android:text="FINALIZAR PEDIDO" />
+            android:text="Limpar" />
 
         <TextView
             android:id="@+id/txtRSFINAL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edtDataEntrega"
-            android:layout_alignParentBottom="true"
-            android:gravity="center"
+            android:layout_below="@id/divider"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -86,13 +100,12 @@
             android:id="@+id/txtValorTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edtDataEntrega"
-            android:gravity="center"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/divider"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toRightOf="@id/txtRSFINAL"
+            android:gravity="center"
             android:text="00.00"
             android:textColor="#000"
             android:textSize="22sp" />
@@ -106,8 +119,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="8dp"
+            android:layout_toRightOf="@id/txtValorTotal"
             android:ems="10"
-            android:hint="Escolha uma data de Entrega dd/mm"
+            android:hint="Data de Entrega dd/mm"
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="#000"

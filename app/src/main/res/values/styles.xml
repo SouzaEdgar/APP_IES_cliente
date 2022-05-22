@@ -49,6 +49,16 @@
         <item name="android:background">@drawable/background_sem_meio</item>
     </style>
 
+    <style name="botoesGradienteContrario">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:background">@drawable/background_sem_meio_contrario</item>
+    </style>
+
     <style name="edt_login">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

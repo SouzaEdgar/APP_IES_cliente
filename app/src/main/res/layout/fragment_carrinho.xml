@@ -14,13 +14,13 @@
             android:id="@+id/imgBoloTriste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bolotriste"
+            android:src="@drawable/bolotriste_png"
             android:layout_centerInParent="true"/>
         <ImageView
             android:id="@+id/imgBoloFeliz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bolofeliz"
+            android:src="@drawable/bolofeliz_png"
             android:layout_centerInParent="true"
             android:visibility="invisible"/>
         <TextView

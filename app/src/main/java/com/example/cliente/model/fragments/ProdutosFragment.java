@@ -30,6 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.ktx.Firebase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ProdutosFragment extends Fragment {
 
@@ -101,6 +104,7 @@ public class ProdutosFragment extends Fragment {
         prodAdapter = new ProdutoAdapter(view.getContext(), lista);
         recyclerView.setAdapter(prodAdapter);
 
+        ArrayList<Produtos> ltProd = new ArrayList<>();
         // Acredito que o erro de Adição Inteira da Lista, ocorre aqui
         produtosDB.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -117,6 +121,7 @@ public class ProdutosFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("Erro", "Não foi adicionado ao Realtime DB");
             }
+
         });
 
         return view;

@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class PerfilFragment extends Fragment {
 
-    private EditText edtNome, edtRua, edtBairro;
+    private EditText edtNome, edtRua, edtBairro, edtComplemento;
     private MaskEditText edtCPF, edtNumero;
     FirebaseFirestore userDB = FirebaseFirestore.getInstance();
     String userID;
@@ -68,6 +68,7 @@ public class PerfilFragment extends Fragment {
         edtNumero = view.findViewById(R.id.edtNumero_alt);
         edtBairro = view.findViewById(R.id.edtBairro_alt);
         edtRua = view.findViewById(R.id.edtRua_alt);
+        edtComplemento = view.findViewById(R.id.edtComplemento_alt);
 
         Button button = (Button) view.findViewById(R.id.btnDeslogar);
         button.setOnClickListener(view1 -> {
@@ -98,6 +99,7 @@ public class PerfilFragment extends Fragment {
                                         alterado.put("numero", edtNumero.getUnMasked());
                                         alterado.put("bairro", edtBairro.getText().toString());
                                         alterado.put("rua", edtRua.getText().toString());
+                                        alterado.put("complemento", edtComplemento.getText().toString());
                                         docReference.document(userID).update(alterado);//.addOnCompleteListener()
                                         break;
                                     }
@@ -146,6 +148,7 @@ public class PerfilFragment extends Fragment {
         edtNumero = view.findViewById(R.id.edtNumero_alt);
         edtBairro = view.findViewById(R.id.edtBairro_alt);
         edtRua = view.findViewById(R.id.edtRua_alt);
+        edtComplemento = view.findViewById(R.id.edtComplemento_alt);
 
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
             String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -160,11 +163,10 @@ public class PerfilFragment extends Fragment {
                     edtNumero.setText(documentSnapshot.getString("numero"));
                     edtBairro.setText(documentSnapshot.getString("bairro"));
                     edtRua.setText(documentSnapshot.getString("rua"));
-
+                    edtComplemento.setText(documentSnapshot.getString("complemento"));
                 }
             });
         }
-
         return view;
     }
 }

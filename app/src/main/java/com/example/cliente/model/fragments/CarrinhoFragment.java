@@ -153,12 +153,14 @@ public class CarrinhoFragment extends Fragment {
                                         for (QueryDocumentSnapshot document : task.getResult()) {
                                             //Log.d("OIAEITA", document.getId() + " => " + document.getData());
                                             if(document.getId().equals(userID)) {
+                                                infos.put("status", "1");
                                                 infos.put("nome", document.get("nome"));
                                                 infos.put("email", document.get("email"));
                                                 infos.put("cpf", document.get("cpf"));
                                                 infos.put("numero", document.get("numero"));
                                                 infos.put("bairro", document.get("bairro"));
                                                 infos.put("rua", document.get("rua"));
+                                                infos.put("complemento", document.get("complemento"));
                                                 infos.put("valorTotal", valorTotal = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ","));
                                                 infos.put("dtaEntrega", dtaEntrega.getMasked()); // Ira retorna com a mascara caso seja necessario fazer um split para pegar os valores separados
                                                 reference.setValue(infos);

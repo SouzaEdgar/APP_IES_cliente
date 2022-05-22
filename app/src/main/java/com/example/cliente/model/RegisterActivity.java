@@ -39,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static MaskEditText edtNumero; // EditNumero - RG
     private static EditText edtBairro; // EditBairro - RG
     private static EditText edtRua;    // EditRua - RG
+    private static EditText edtComplemento; // EditComplemetno - RG
 
     String userID;
 
@@ -54,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         edtNumero = findViewById(R.id.edtNumeroRg);
         edtBairro = findViewById(R.id.edtBairroRg);
         edtRua = findViewById(R.id.edtRuaRg);
+        edtComplemento = findViewById(R.id.edtComplementoRg);
         Button btnCadastro = findViewById(R.id.btnCadastroRg);
 
         // Verifica se todos os campos estão preenchidos
@@ -65,9 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
             String numero = edtNumero.getUnMasked();
             String bairro = edtBairro.getText().toString();
             String rua = edtRua.getText().toString();
+            String complemento = edtComplemento.getText().toString();
 
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty() ||
-            numero.isEmpty() || bairro.isEmpty() || rua.isEmpty()) {
+            numero.isEmpty() || bairro.isEmpty() || rua.isEmpty() || complemento.isEmpty()) {
                 Toast.makeText(view.getContext(), "Preencha todos os campos", Toast.LENGTH_LONG).show();
             } else {
                 registrarUsuario(view);
@@ -119,6 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
         String cpf = edtCPF.getUnMasked();
         String bairro = edtBairro.getText().toString();
         String rua = edtRua.getText().toString();
+        String complemento = edtComplemento.getText().toString();
 
         FirebaseFirestore userDB = FirebaseFirestore.getInstance();
 
@@ -129,6 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
         users.put("cpf", cpf);
         users.put("bairro", bairro);
         users.put("rua", rua);
+        users.put("complemento", complemento);
 
         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 

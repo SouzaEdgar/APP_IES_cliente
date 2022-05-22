@@ -11,13 +11,13 @@
         android:id="@+id/containerComponents"
         style="@style/ContainerComponents"
         android:layout_width="374dp"
-        android:layout_height="502dp"
+        android:layout_height="542dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/borderradius"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtBairroRg"
@@ -26,6 +26,7 @@
         android:background="@drawable/btn_login"
         android:hint="@string/bairro_rg"
         android:inputType="text"
+        android:maxLength="44"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -43,6 +44,7 @@
         android:background="@drawable/btn_login"
         android:hint="@string/rua_rg"
         android:inputType="text"
+        android:maxLength="44"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -51,32 +53,46 @@
         app:layout_constraintTop_toBottomOf="@+id/edtBairroRg" />
 
     <EditText
+        android:id="@+id/edtComplementoRg"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_login"
+        android:hint="Complemento"
+        android:inputType="text"
+        android:maxLength="40"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cinza"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@+id/edtRuaRg" />
+
+    <EditText
         android:id="@+id/edtSenhaRg"
         android:layout_width="240dp"
         android:layout_height="48dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/btn_login"
         android:hint="@string/senha_rg"
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
-        app:layout_constraintBottom_toBottomOf="@+id/containerComponents"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents"
         app:layout_constraintStart_toStartOf="@+id/containerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/edtRuaRg"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edtComplementoRg" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCadastroRg"
         style="@style/botoesRosa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/botao_cadastrar"
         app:layout_constraintBottom_toBottomOf="@+id/containerComponents"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents"
-        app:layout_constraintStart_toStartOf="@+id/containerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenhaRg" />
+        app:layout_constraintStart_toStartOf="@+id/containerComponents" />
 
     <EditText
         android:id="@+id/edtNomeRg"
@@ -85,6 +101,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/btn_login"
         android:hint="@string/nome_rg"
+        android:maxLength="44"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -101,6 +118,7 @@
         android:background="@drawable/btn_login"
         android:hint="@string/email_rg"
         android:inputType="textEmailAddress"
+        android:maxLength="120"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -108,6 +126,7 @@
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="@+id/containerComponents"
         app:layout_constraintTop_toBottomOf="@+id/edtNomeRg" />
+
 
     <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/edtCpfRg"

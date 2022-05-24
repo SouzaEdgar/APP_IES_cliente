@@ -123,6 +123,8 @@ public class CarrinhoFragment extends Fragment {
                recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
                view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.VISIBLE);
                view.findViewById(R.id.imgBoloTriste).setVisibility(view.VISIBLE);
+                view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.INVISIBLE);
+                view.findViewById(R.id.imgBoloFeliz).setVisibility(view.INVISIBLE);
                 ItemFragment.somaTOTAL = 00.00;
                 vTOTAL.setText(String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ","));
                Toast.makeText(view.getContext(), "Carrinho esvaziado",Toast.LENGTH_SHORT).show();
@@ -137,10 +139,10 @@ public class CarrinhoFragment extends Fragment {
                 Toast.makeText(view.getContext(), "Carrinho já esta vazio", Toast.LENGTH_SHORT).show();
             });
 
-            view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.VISIBLE);
-            view.findViewById(R.id.imgBoloTriste).setVisibility(view.VISIBLE);
             view.findViewById(R.id.txtMsgBoloFeliz).setVisibility(view.INVISIBLE);
             view.findViewById(R.id.imgBoloFeliz).setVisibility(view.INVISIBLE);
+            view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.VISIBLE);
+            view.findViewById(R.id.imgBoloTriste).setVisibility(view.VISIBLE);
         }
 
         Button finalizar = view.findViewById(R.id.btnFinalizar);
@@ -153,10 +155,6 @@ public class CarrinhoFragment extends Fragment {
                     String dia = dtaEntrega.getMasked().substring(0,2);
                     String mes = dtaEntrega.getMasked().substring(3,5);
 
-                   /* if(Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) > 31 || Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) < 1) {
-                        Toast.makeText(view.getContext(), "Dia inválido", Toast.LENGTH_SHORT).show();
-                    } else if(Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) > 12 || Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) < 5 ) {
-                        Toast.makeText(view.getContext(), "Meses válidos 5~12", Toast.LENGTH_SHORT).show(); */
                     if(verificaData(dia, mes, view)) {
                         /////////// Caso tudo esteja correto ////////////
                         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -170,7 +168,6 @@ public class CarrinhoFragment extends Fragment {
                                 .addOnCompleteListener((OnCompleteListener<QuerySnapshot>) task -> {
                                     if (task.isSuccessful()) {
                                         for (QueryDocumentSnapshot document : task.getResult()) {
-                                            //Log.d("OIAEITA", document.getId() + " => " + document.getData());
                                             if(document.getId().equals(userID)) {
                                                 infos.put("status", "1");
                                                 infos.put("nome", document.get("nome"));

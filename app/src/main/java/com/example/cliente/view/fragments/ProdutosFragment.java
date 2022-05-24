@@ -1,6 +1,8 @@
 package com.example.cliente.view.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -19,9 +21,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cliente.R;
+import com.example.cliente.view.MenuActivity;
 import com.example.cliente.viewModel.ProdutoAdapter;
 import com.example.cliente.model.Produtos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -97,18 +101,23 @@ public class ProdutosFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext())); // view.getContext() == this    ~(Neste caso)
 
         lista = new ArrayList<>();
-        prodAdapter = new ProdutoAdapter(view.getContext(), lista);
-        recyclerView.setAdapter(prodAdapter);
+
 
         ArrayList<Produtos> ltProd = new ArrayList<>();
+
         // Acredito que o erro de Adição Inteira da Lista, ocorre aqui
         produtosDB.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lista.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Produtos produtos = dataSnapshot.getValue(Produtos.class);
-                    lista.add(produtos);
+                    if(dataSnapshot.exists()) {
+                        Produtos produtos = dataSnapshot.getValue(Produtos.class);
+                        lista.add(produtos);
+                        Log.d("PdFrag", "->>>> "+lista.size());
+                    }
+
                 }
                 prodAdapter.notifyDataSetChanged();
             }
@@ -118,7 +127,8 @@ public class ProdutosFragment extends Fragment {
                 Log.d("Erro", "Não foi adicionado ao Realtime DB");
             }
         });
-
+        prodAdapter = new ProdutoAdapter(view.getContext(), lista);
+        recyclerView.setAdapter(prodAdapter);
         return view;
     }
 }

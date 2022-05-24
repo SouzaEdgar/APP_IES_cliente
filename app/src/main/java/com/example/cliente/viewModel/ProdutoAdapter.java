@@ -1,6 +1,8 @@
 package com.example.cliente.viewModel;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,9 +46,14 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
         Glide.with(holder.imagem.getContext())
                 .load(produto.getImagem())
                 .into(holder.imagem);
+        Log.d("Esse", "posicao -> "+position);
+        Log.d("Esse", "tamanho -> "+lista.size());
 
-        // Neste caso, a tela é passada quando o usuário clica na imagem
-        //  testar se possível o clique em outros lugares, talvez em todos os campos
+        /*Intent intent = new Intent(context, ProdutosFragment.class);
+        context.startActivity(intent);
+        ((Activity)context).finish();
+        ((Activity)context).overridePendingTransition(0,0);*/
+
         holder.imagem.setOnClickListener(view -> {
             AppCompatActivity activity = (AppCompatActivity) view.getContext();
             activity.getSupportFragmentManager()

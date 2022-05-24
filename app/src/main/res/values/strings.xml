@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cliente</string>
+    <string name="app_name">Doceria Kelly</string>
 
     <!-- Parte do Login -->
     <string name="email_lg">Email: </string>

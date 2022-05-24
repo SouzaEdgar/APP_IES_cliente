@@ -27,6 +27,9 @@
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.3525" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3525" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.3525" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/ic_tentativa_icone_background.xml" value="0.3675" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/itens.xml" value="0.3675" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/itens_inverso.xml" value="0.3675" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/drawable/navitemselector.xml" value="0.3675" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/font/arbutus.xml" value="0.3257802479692176" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout-v31/activity_menu.xml" value="0.36666666666666664" />
@@ -44,6 +47,10 @@
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/itens_carrinho.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/layout/itens_produto.xml" value="0.3009833262077811" />
         <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/menu/nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3675" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3675" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/mipmap-anydpi-v26/ic_tentativa_icone.xml" value="0.3675" />
+        <entry key="..\:/Ed/AndroidStudioProjects/cliente/app/src/main/res/mipmap-anydpi-v26/ic_tentativa_icone_round.xml" value="0.3675" />
       </map>
     </option>
   </component>

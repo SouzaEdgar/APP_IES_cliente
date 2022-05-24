@@ -151,11 +151,14 @@ public class CarrinhoFragment extends Fragment {
                     Log.d("Data", "Dia -> " + dtaEntrega.getMasked().substring(0,2)); // Recolhe o dia
                     Log.d("Data", "Mês -> " + dtaEntrega.getMasked().substring(3,5)); // Recolhe o mês
 
-                    if(Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) > 31 || Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) < 1) {
+                    String dia = dtaEntrega.getMasked().substring(0,2);
+                    String mes = dtaEntrega.getMasked().substring(3,5);
+
+                   /* if(Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) > 31 || Integer.parseInt(dtaEntrega.getMasked().substring(0,2)) < 1) {
                         Toast.makeText(view.getContext(), "Dia inválido", Toast.LENGTH_SHORT).show();
                     } else if(Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) > 12 || Integer.parseInt(dtaEntrega.getMasked().substring(3,5)) < 5 ) {
-                        Toast.makeText(view.getContext(), "Meses válidos 5~12", Toast.LENGTH_SHORT).show();
-                    } else {
+                        Toast.makeText(view.getContext(), "Meses válidos 5~12", Toast.LENGTH_SHORT).show(); */
+                    if(verificaData(dia, mes, view)) {
                         /////////// Caso tudo esteja correto ////////////
                         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -227,5 +230,38 @@ public class CarrinhoFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public Boolean verificaData(String dia, String mes, View view) {
+        Integer intMes = Integer.parseInt(mes);
+        Integer intDia = Integer.parseInt(dia);
+
+        String erroData = "Escolha uma data futura";
+        String erroDia = "Dia inválido";
+        String erroMes = "Meses válidos 5~12";
+
+        if (intMes < 5 || intMes > 12) {// Somente de Maio até Dezembro de 2022
+            Toast.makeText(view.getContext(), erroMes, Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (intDia < 1 || intDia > 31) {// Somente do dia 1 a 31
+            Toast.makeText(view.getContext(), erroDia, Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            // Se dia maior ou igual a 1 || dia menor ou igual a 31
+            // Se mes maior ou igual a 5 || mes menor ou igual a 12
+            //  ocorre a verificação se o dia é valido no mes escolhido.
+            if (intMes == 5) {
+                if (intDia < 26) {
+                    Toast.makeText(view.getContext(), erroData, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            } else if (intMes == 6 || intMes == 9 || intMes == 11) {
+                if (intDia > 30) {
+                    Toast.makeText(view.getContext(), erroDia, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

@@ -60,6 +60,48 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
                             )
                     ).addToBackStack(null).commit();
         });
+        holder.nome.setOnClickListener(view -> {
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(
+                            R.id.frame_layout,
+                            new ItemFragment(
+                                    produto.getNome(),
+                                    produto.getSabor(),
+                                    produto.getValor(),
+                                    produto.getImagem()
+                            )
+                    ).addToBackStack(null).commit();
+        });
+        holder.sabor.setOnClickListener(view -> {
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(
+                            R.id.frame_layout,
+                            new ItemFragment(
+                                    produto.getNome(),
+                                    produto.getSabor(),
+                                    produto.getValor(),
+                                    produto.getImagem()
+                            )
+                    ).addToBackStack(null).commit();
+        });
+        holder.valor.setOnClickListener(view -> {
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(
+                            R.id.frame_layout,
+                            new ItemFragment(
+                                    produto.getNome(),
+                                    produto.getSabor(),
+                                    produto.getValor(),
+                                    produto.getImagem()
+                            )
+                    ).addToBackStack(null).commit();
+        });
     }
 
     @Override

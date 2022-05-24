@@ -91,8 +91,6 @@ public class ItemFragment extends Fragment {
         valorHolder.setText(valor);
         Glide.with(getContext()).load(imagem).into(imgHolder);
 
-
-
         Button adicionar = view.findViewById(R.id.btnADDcar);
         adicionar.setOnClickListener(v -> {
             Log.d("OIA", "nome -> "+nome);
@@ -109,14 +107,4 @@ public class ItemFragment extends Fragment {
 
         return view;
     }
-
-    /*public void onBackPressed() {
-        AppCompatActivity activity = (AppCompatActivity) getContext();
-        activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(
-                        R.id.frame_layout,
-                        new ProdutosFragment()
-                ).addToBackStack(null).commit();
-    }*/
 }

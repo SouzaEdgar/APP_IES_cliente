@@ -38,13 +38,6 @@ public class CarrinhoVazioFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-            Usuarios a = new Usuarios();
-            String c="1",d="1",e="1",f="1",g="1",h="1",i="1",j="1",k="1",l="1";
-            Usuarios b = new Usuarios(c,d,e,f,g,h,i);
-
-            a.getCpf();a.getBairro(); a.getEmail(); a.getNome(); a.getNumero(); a.getRua(); a.getValorTotal();
-            a.setBairro(c); a.setCpf(c); a.setEmail(c); a.setNome(c);a.setNumero(c);a.setRua(c);a.setValorTotal(c);
         }
     }
 

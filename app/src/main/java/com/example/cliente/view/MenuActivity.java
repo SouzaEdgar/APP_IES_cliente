@@ -1,4 +1,4 @@
-package com.example.cliente.model;
+package com.example.cliente.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,12 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.WindowManager;
 
 import com.example.cliente.R;
-import com.example.cliente.model.fragments.CarrinhoFragment;
-import com.example.cliente.model.fragments.PerfilFragment;
-import com.example.cliente.model.fragments.ProdutosFragment;
+import com.example.cliente.view.fragments.CarrinhoFragment;
+import com.example.cliente.view.fragments.PerfilFragment;
+import com.example.cliente.view.fragments.ProdutosFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MenuActivity extends AppCompatActivity {
@@ -51,5 +50,4 @@ public class MenuActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.cliente.controller;
+package com.example.cliente.viewModel;
 
 import java.util.Map;
 

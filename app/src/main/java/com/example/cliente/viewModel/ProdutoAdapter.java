@@ -1,4 +1,4 @@
-package com.example.cliente.controller;
+package com.example.cliente.viewModel;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.cliente.R;
-import com.example.cliente.model.fragments.ItemFragment;
+import com.example.cliente.model.Produtos;
+import com.example.cliente.view.fragments.ItemFragment;
 
 import java.util.ArrayList;
 

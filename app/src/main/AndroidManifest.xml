@@ -14,7 +14,7 @@
             android:exported="false"
             android:label="@string/title_activity_novo_menu" /-->
         <activity
-            android:name=".model.MenuActivity"
+            android:name=".view.MenuActivity"
             android:exported="false"
             android:screenOrientation="portrait">
 
@@ -22,13 +22,13 @@
         </activity>
 
         <activity
-            android:name=".model.RegisterActivity"
+            android:name=".view.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".model.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

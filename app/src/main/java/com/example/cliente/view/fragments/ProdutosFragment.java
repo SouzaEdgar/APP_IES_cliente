@@ -1,4 +1,4 @@
-package com.example.cliente.model.fragments;
+package com.example.cliente.view.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -19,20 +19,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cliente.R;
-import com.example.cliente.controller.ProdutoAdapter;
-import com.example.cliente.controller.Produtos;
+import com.example.cliente.viewModel.ProdutoAdapter;
+import com.example.cliente.model.Produtos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ProdutosFragment extends Fragment {
 
@@ -121,7 +117,6 @@ public class ProdutosFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("Erro", "Não foi adicionado ao Realtime DB");
             }
-
         });
 
         return view;

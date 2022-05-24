@@ -1,4 +1,4 @@
-package com.example.cliente.model.fragments;
+package com.example.cliente.view.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.cliente.R;
-import com.example.cliente.model.MainActivity;
+import com.example.cliente.view.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;

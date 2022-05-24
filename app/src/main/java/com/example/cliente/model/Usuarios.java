@@ -1,4 +1,4 @@
-package com.example.cliente.controller;
+package com.example.cliente.model;
 
 public class Usuarios {
     String nome, cpf, email, rua, bairro, numero, valorTotal;

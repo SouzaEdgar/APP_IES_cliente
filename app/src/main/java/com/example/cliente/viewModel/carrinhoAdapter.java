@@ -1,4 +1,4 @@
-package com.example.cliente.controller;
+package com.example.cliente.viewModel;
 
 import android.view.LayoutInflater;
 import android.view.View;

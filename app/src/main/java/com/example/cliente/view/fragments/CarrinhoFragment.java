@@ -1,4 +1,4 @@
-package com.example.cliente.model.fragments;
+package com.example.cliente.view.fragments;
 
 import android.os.Bundle;
 
@@ -19,8 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cliente.R;
-import com.example.cliente.controller.Usuarios;
-import com.example.cliente.controller.carrinhoAdapter;
+import com.example.cliente.viewModel.carrinhoAdapter;
 import com.example.cliente.model.carrinhoModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

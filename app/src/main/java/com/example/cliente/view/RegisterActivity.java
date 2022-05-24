@@ -1,4 +1,4 @@
-package com.example.cliente.controller;
+package com.example.cliente.view;
 
 import static android.content.ContentValues.TAG;
 
@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.example.cliente.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,19 +23,21 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.santalu.maskara.widget.MaskEditText;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText edtNome;   // EditNome - RG
-    private EditText edtEmail;  // EditEmail - RG
-    private EditText edtSenha;  // EditSenha - RG
-    private EditText edtCPF;    // EditCpf - RG
-    private EditText edtNumero; // EditNumero - RG
-    private EditText edtBairro; // EditBairro - RG
-    private EditText edtRua;    // EditRua - RG
+    private static EditText edtNome;   // EditNome - RG
+    private static EditText edtEmail;  // EditEmail - RG
+    private static EditText edtSenha;  // EditSenha - RG
+    private static MaskEditText edtCPF;    // EditCpf - RG
+    private static MaskEditText edtNumero; // EditNumero - RG
+    private static EditText edtBairro; // EditBairro - RG
+    private static EditText edtRua;    // EditRua - RG
+    private static EditText edtComplemento; // EditComplemetno - RG
 
     String userID;
 
@@ -52,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         edtNumero = findViewById(R.id.edtNumeroRg);
         edtBairro = findViewById(R.id.edtBairroRg);
         edtRua = findViewById(R.id.edtRuaRg);
+        edtComplemento = findViewById(R.id.edtComplementoRg);
         Button btnCadastro = findViewById(R.id.btnCadastroRg);
 
         // Verifica se todos os campos estão preenchidos
@@ -59,13 +61,14 @@ public class RegisterActivity extends AppCompatActivity {
             String nome = edtNome.getText().toString();
             String email = edtEmail.getText().toString();
             String senha = edtSenha.getText().toString();
-            String cpf = edtCPF.getText().toString();
-            String numero = edtNumero.getText().toString();
+            String cpf = edtCPF.getUnMasked();
+            String numero = edtNumero.getUnMasked();
             String bairro = edtBairro.getText().toString();
             String rua = edtRua.getText().toString();
+            String complemento = edtComplemento.getText().toString();
 
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty() ||
-            numero.isEmpty() || bairro.isEmpty() || rua.isEmpty()) {
+            numero.isEmpty() || bairro.isEmpty() || rua.isEmpty() || complemento.isEmpty()) {
                 Toast.makeText(view.getContext(), "Preencha todos os campos", Toast.LENGTH_LONG).show();
             } else {
                 registrarUsuario(view);
@@ -113,10 +116,11 @@ public class RegisterActivity extends AppCompatActivity {
         android.util.Log.d("salvarDadosUser()", "salvarDadosUser() foi chamado");
         String nome = edtNome.getText().toString();
         String email = edtEmail.getText().toString();
-        String numero = edtNumero.getText().toString();
-        String cpf = edtCPF.getText().toString();
+        String numero = edtNumero.getUnMasked();
+        String cpf = edtCPF.getUnMasked();
         String bairro = edtBairro.getText().toString();
         String rua = edtRua.getText().toString();
+        String complemento = edtComplemento.getText().toString();
 
         FirebaseFirestore userDB = FirebaseFirestore.getInstance();
 
@@ -127,6 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
         users.put("cpf", cpf);
         users.put("bairro", bairro);
         users.put("rua", rua);
+        users.put("complemento", complemento);
 
         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 

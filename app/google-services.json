@@ -1,33 +1,79 @@
 {
   "project_info": {
-    "project_number": "118698495349",
-    "project_id": "ies-cliente",
-    "storage_bucket": "ies-cliente.appspot.com"
+    "project_number": "257383163564",
+    "firebase_url": "https://confeitaria-28b84-default-rtdb.firebaseio.com",
+    "project_id": "confeitaria-28b84",
+    "storage_bucket": "confeitaria-28b84.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:118698495349:android:0d08b7d025bfa6c337d73c",
+        "mobilesdk_app_id": "1:257383163564:android:ceebdf015ab8caf6b16109",
         "android_client_info": {
-          "package_name": "com.example.cliente"
+          "package_name": "com.example.app_firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "118698495349-28m9edutngbnfkdf84ofnva50k2vpbg1.apps.googleusercontent.com",
+          "client_id": "257383163564-lsg3gm9j1ud5d0ur883ng0npa2pu24rp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_firebase",
+            "certificate_hash": "f6602806e0b6b680ae9941268d87bfe1970eb566"
+          }
+        },
+        {
+          "client_id": "257383163564-kv0nq9ir11ur9uvagco6qksdm9alq897.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAeAfsYLrDqIf1A4vBs96UOUpHa5p1zDyM"
+          "current_key": "AIzaSyAAV8XGfHNZj5UC5fhp2uDAV3AUjwSmU5Y"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "118698495349-28m9edutngbnfkdf84ofnva50k2vpbg1.apps.googleusercontent.com",
+              "client_id": "257383163564-kv0nq9ir11ur9uvagco6qksdm9alq897.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257383163564:android:da039decedadc8c8b16109",
+        "android_client_info": {
+          "package_name": "com.example.cliente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257383163564-p8vl6uielnkao2lb57kj2sfjd53r76jp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cliente",
+            "certificate_hash": "1712741fac6b36eada43f8e2a72ea9317e00aaa4"
+          }
+        },
+        {
+          "client_id": "257383163564-kv0nq9ir11ur9uvagco6qksdm9alq897.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAV8XGfHNZj5UC5fhp2uDAV3AUjwSmU5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257383163564-kv0nq9ir11ur9uvagco6qksdm9alq897.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

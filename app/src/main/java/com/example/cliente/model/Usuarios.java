@@ -5,7 +5,6 @@ public class Usuarios {
 
     public Usuarios() {
     }
-
     public Usuarios(String nome, String cpf, String email, String rua, String bairro, String numero, String valorTotal) {
         this.nome = nome;
         this.cpf = cpf;
@@ -15,7 +14,6 @@ public class Usuarios {
         this.numero = numero;
         this.valorTotal = valorTotal;
     }
-
     public String getNome() {
         return nome;
     }
@@ -71,4 +69,5 @@ public class Usuarios {
     public void setValorTotal(String valorTotal) {
         this.valorTotal = valorTotal;
     }
+
 }

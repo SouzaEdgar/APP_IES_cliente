@@ -1,4 +1,4 @@
-package com.example.cliente.view.fragments;
+package com.example.cliente.viewModel.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.cliente.R;
-import com.example.cliente.view.MainActivity;
+import com.example.cliente.viewModel.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -93,13 +93,13 @@ public class PerfilFragment extends Fragment {
                                         Toast.makeText(view.getContext(), "Dados alterados", Toast.LENGTH_SHORT).show();
 
                                         Map<String, Object> alterado = new HashMap<>();
-                                        alterado.put("nome", edtNome.getText().toString());
+                                        alterado.put("nome", edtNome.getText().toString().trim());
                                         //alterado.put("email", edtEmail.getText().toString());
                                         alterado.put("cpf", edtCPF.getUnMasked());
                                         alterado.put("numero", edtNumero.getUnMasked());
-                                        alterado.put("bairro", edtBairro.getText().toString());
-                                        alterado.put("rua", edtRua.getText().toString());
-                                        alterado.put("complemento", edtComplemento.getText().toString());
+                                        alterado.put("bairro", edtBairro.getText().toString().trim());
+                                        alterado.put("rua", edtRua.getText().toString().trim());
+                                        alterado.put("complemento", edtComplemento.getText().toString().trim());
                                         docReference.document(userID).update(alterado);//.addOnCompleteListener()
                                         break;
                                     }

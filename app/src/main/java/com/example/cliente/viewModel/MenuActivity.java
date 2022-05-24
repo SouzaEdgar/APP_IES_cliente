@@ -1,4 +1,4 @@
-package com.example.cliente.view;
+package com.example.cliente.viewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,9 +8,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.cliente.R;
-import com.example.cliente.view.fragments.CarrinhoFragment;
-import com.example.cliente.view.fragments.PerfilFragment;
-import com.example.cliente.view.fragments.ProdutosFragment;
+import com.example.cliente.viewModel.fragments.CarrinhoFragment;
+import com.example.cliente.viewModel.fragments.PerfilFragment;
+import com.example.cliente.viewModel.fragments.ProdutosFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MenuActivity extends AppCompatActivity {

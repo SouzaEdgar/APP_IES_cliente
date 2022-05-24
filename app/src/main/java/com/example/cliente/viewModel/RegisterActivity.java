@@ -1,4 +1,4 @@
-package com.example.cliente.view;
+package com.example.cliente.viewModel;
 
 import static android.content.ContentValues.TAG;
 
@@ -114,13 +114,13 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void salvarDadosUser() {
         android.util.Log.d("salvarDadosUser()", "salvarDadosUser() foi chamado");
-        String nome = edtNome.getText().toString();
-        String email = edtEmail.getText().toString();
+        String nome = edtNome.getText().toString().trim();
+        String email = edtEmail.getText().toString().trim();
         String numero = edtNumero.getUnMasked();
         String cpf = edtCPF.getUnMasked();
-        String bairro = edtBairro.getText().toString();
-        String rua = edtRua.getText().toString();
-        String complemento = edtComplemento.getText().toString();
+        String bairro = edtBairro.getText().toString().trim();
+        String rua = edtRua.getText().toString().trim();
+        String complemento = edtComplemento.getText().toString().trim();
 
         FirebaseFirestore userDB = FirebaseFirestore.getInstance();
 

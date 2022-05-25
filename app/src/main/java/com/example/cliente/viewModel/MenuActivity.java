@@ -20,7 +20,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
         mudarFragment(new ProdutosFragment());
 
          BottomNavigationView navSecoes = findViewById(R.id.navSecoes);
@@ -31,9 +30,6 @@ public class MenuActivity extends AppCompatActivity {
                     break;
                 case R.id.item_carrinho:
                     mudarFragment(new CarrinhoFragment());
-                    /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                            WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new CarrinhoFragment()).commit();*/
                     break;
                 case R.id.item_perfil:
                     mudarFragment(new PerfilFragment());

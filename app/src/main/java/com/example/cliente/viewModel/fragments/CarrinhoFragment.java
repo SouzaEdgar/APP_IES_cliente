@@ -109,7 +109,7 @@ public class CarrinhoFragment extends Fragment {
 
         if(ItemFragment.itemADD.size() != 0) {
             recyclerView.setAdapter(new carrinhoAdapter(ItemFragment.itemADD));
-            String s = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ",");
+            String s = String.format("%.2f", (ItemFragment.somaTOTAL)).replace(".", ",");
             vTOTAL.setText(s);
 
             view.findViewById(R.id.txtMsgBoloTriste).setVisibility(view.INVISIBLE);
@@ -177,7 +177,7 @@ public class CarrinhoFragment extends Fragment {
                                                 infos.put("bairro", document.get("bairro"));
                                                 infos.put("rua", document.get("rua"));
                                                 infos.put("complemento", document.get("complemento"));
-                                                infos.put("valorTotal", valorTotal = String.format("%.2f", ItemFragment.somaTOTAL).replace(".", ","));
+                                                infos.put("valorTotal", valorTotal = String.format("%.2f", ItemFragment.somaTOTAL + 8).replace(".", ",")); // 8 taxa de FRETE
                                                 infos.put("dtaEntrega", dtaEntrega.getMasked()); // Ira retorna com a mascara caso seja necessario fazer um split para pegar os valores separados
                                                 reference.setValue(infos);
 

@@ -29,16 +29,17 @@ public class ItemFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    String nome, sabor, valor, imagem;
+    String nome, sabor, valor, imagem;//validade
 
     public ItemFragment() {
     }
 
-    public ItemFragment(String nome, String sabor, String valor, String imagem) {
+    public ItemFragment(String nome, String sabor, String valor, String imagem) {// String validade
         this.nome = nome;
         this.sabor = sabor;
         this.valor = valor;
         this.imagem = imagem;
+        //this.validade = validade;
     }
 
     public static ItemFragment newInstance(String param1, String param2) {
@@ -85,6 +86,7 @@ public class ItemFragment extends Fragment {
         TextView nomeHolder = view.findViewById(R.id.txtNome_ProdItem);
         TextView saborHolder = view.findViewById(R.id.txtSabor_ProdItem);
         TextView valorHolder = view.findViewById(R.id.txtValor_ProdItem);
+        //TextView validadeHolder = view.findViewById(R.id.txtValidade_ProdItem);
 
         nomeHolder.setText(nome);
         saborHolder.setText(sabor);
@@ -101,6 +103,7 @@ public class ItemFragment extends Fragment {
             carrinhoModel objADD = new carrinhoModel(imagem, nome, sabor, valor);
             itemADD.add(objADD);
             somaTOTAL += Double.parseDouble(valor.replace(",","."));
+
 
             Toast.makeText(v.getContext(), "Item adicionado ao carrinho", Toast.LENGTH_SHORT).show();
         });

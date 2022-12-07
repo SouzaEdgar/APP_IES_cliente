@@ -231,28 +231,31 @@ public class CarrinhoFragment extends Fragment {
     public Boolean verificaData(String dia, String mes, View view) {
         Integer intMes = Integer.parseInt(mes);
         Integer intDia = Integer.parseInt(dia);
+        //Integer intAno = Integer.parseInt(ano);
 
         String erroData = "Escolha uma data futura";
         String erroDia = "Dia inválido";
-        String erroMes = "Meses válidos 5~12";
+        String erroMes = "Meses válidos 12_1_2_3";
+        //String erroAno = "Anos válidos 2022~2023"
 
-        if (intMes < 5 || intMes > 12) {// Somente de Maio até Dezembro de 2022
+        if (intMes != 12 && intMes != 1 && intMes != 2 && intMes != 3 || intMes > 12) {// Somente de Dezembro 2022 até Março de 2023
             Toast.makeText(view.getContext(), erroMes, Toast.LENGTH_SHORT).show();
             return false;
         } else if (intDia < 1 || intDia > 31) {// Somente do dia 1 a 31
             Toast.makeText(view.getContext(), erroDia, Toast.LENGTH_SHORT).show();
             return false;
-        } else {
+        }
+        else {
             // Se dia maior ou igual a 1 || dia menor ou igual a 31
             // Se mes maior ou igual a 5 || mes menor ou igual a 12
             //  ocorre a verificação se o dia é valido no mes escolhido.
-            if (intMes == 5) {
-                if (intDia < 26) {
+            if (intMes == 12) { // Dezembro 2022
+                if (intDia < 8) {
                     Toast.makeText(view.getContext(), erroData, Toast.LENGTH_SHORT).show();
                     return false;
                 }
-            } else if (intMes == 6 || intMes == 9 || intMes == 11) {
-                if (intDia > 30) {
+            } else if (intMes == 2) {
+                if (intDia > 28) {
                     Toast.makeText(view.getContext(), erroDia, Toast.LENGTH_SHORT).show();
                     return false;
                 }
